@@ -1,0 +1,2 @@
+# tietokannat
+Tietokannat-projektityö (SQL)
