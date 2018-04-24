@@ -1,1 +1,31 @@
 ## Luomiskomennot
+
+
+---------------------------------
+
+CREATE TABLE JarjestaHarjoitus (
+  totID CHAR(25),
+  HID CHAR(25)
+);
+
+CREATE TABLE JarjestaLuento (
+  totID CHAR(25),
+  LID CHAR(25)
+);
+
+CREATE TABLE TenttiIlmo (
+  opNum CHAR(10),
+  TID CHAR(25)
+);
+
+CREATE TABLE HarjRyhmaIlmo (
+  opNum CHAR(10),
+  HID CHAR(25)
+);
+
+CREATE TABLE TenttiVaraus(
+  TID CHAR(25),
+  SID CHAR(25),
+  alkuaika CHAR(5),
+  pvm CHAR(15)
+);
