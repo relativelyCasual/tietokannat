@@ -29,3 +29,28 @@ CREATE TABLE TenttiVaraus(
   alkuaika CHAR(5),
   pvm CHAR(15)
 );
+
+CREATE TABLE HarjRyhmaVaraus(
+  HID CHAR(25),
+  SID CHAR(25),
+  alkuaika CHAR(5),
+  pvm CHAR(15)
+);
+
+CREATE TABLE LuentoVaraus(
+  LID CHAR(25),
+  SID CHAR(25),
+  alkuaika CHAR(5),
+  pvm CHAR(15)
+);
+
+CREATE TABLE TavaratSijaitsee(
+  nimi CHAR(25),
+  SID CHAR(25),
+  lkm INT
+);
+
+CREATE TABLE Tapahtuma(
+  aika CHAR(5),
+  pvm CHAR(25)
+);
