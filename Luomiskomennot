@@ -2,6 +2,63 @@
 
 
 ---------------------------------
+CREATE TABLE Opiskelijat (
+	op.num CHAR(10),
+	nimi CHAR(100),
+	ohjelma CHAR(100),
+	alkupvm DATE,
+	loppupvm DATE
+);
+
+CREATE TABLE Kurssi (
+	KID CHAR(25),
+	opintopisteet INT,
+	nimi CHAR(100)
+);
+
+CREATE TABLE Tentti (
+	TID CHAR(25),
+	vuosi INT,
+	monesko INT
+);
+
+CREATE TABLE Kurssitoteutus (
+	totID CHAR(25),
+	vuosi INT,
+	periodi CHAR(3)
+);
+
+CREATE TABLE Harjoitusryhmä (
+	HID CHAR(25),
+	maxHlö INT,
+	monesko	INT
+);
+
+CREATE TABLE Luento (
+	LID CHAR(25)	          -- Kylläpä tämä tuntuu turhalta
+);
+
+CREATE TABLE Sali (
+	SID CHAR(25),
+	nimi CHAR(100),
+	op.paikat INT,
+	tenttipaikat INT	
+);
+
+CREATE TABLE Rakennus (
+	nimi CHAR(100),
+	osoite CHAR(100)
+);
+
+CREATE TABLE JärjestäTentti (
+	KID CHAR(25),
+	TID CHAR(25)
+);
+
+CREATE TABLE JärjestäToteutus (
+	totID CHAR(25),
+	HID CHAR(25)
+);
 
 CREATE TABLE JarjestaHarjoitus (
   totID CHAR(25),
@@ -50,7 +107,7 @@ CREATE TABLE TavaratSijaitsee(
   lkm INT
 );
 
-CREATE TABLE Tapahtuma(
+CREATE TABLE Tapahtuma(       --ptäisikö tässä olla vielä SID?
   aika CHAR(5),
   pvm CHAR(25)
 );
