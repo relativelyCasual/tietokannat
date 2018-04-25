@@ -3,7 +3,7 @@
 
 ---------------------------------
 CREATE TABLE Opiskelijat (
-	op.num CHAR(10),
+	op.num CHAR(10) PRIMARY KEY,
 	nimi CHAR(100),
 	ohjelma CHAR(100),
 	alkupvm DATE,
@@ -11,103 +11,115 @@ CREATE TABLE Opiskelijat (
 );
 
 CREATE TABLE Kurssi (
-	KID CHAR(25),
+	KID CHAR(25) PRIMARY KEY,
 	opintopisteet INT,
 	nimi CHAR(100)
 );
 
 CREATE TABLE Tentti (
-	TID CHAR(25),
+	TID CHAR(25) PRIMARY KEY,
 	vuosi INT,
 	monesko INT
 );
 
 CREATE TABLE Kurssitoteutus (
-	totID CHAR(25),
+	totID CHAR(25) PRIMARY KKEY,
 	vuosi INT,
 	periodi CHAR(3)
 );
 
 CREATE TABLE Harjoitusryhmä (
-	HID CHAR(25),
+	HID CHAR(25) PRIMARY KEY,
 	maxHlö INT,
 	monesko	INT
 );
 
 CREATE TABLE Luento (
-	LID CHAR(25)	          -- Kylläpä tämä tuntuu turhalta
+	LID CHAR(25) PRIMARY KEY	          -- Kylläpä tämä tuntuu turhalta
 );
 
 CREATE TABLE Sali (
-	SID CHAR(25),
+	SID CHAR(25) PRIMARY KEY,
 	nimi CHAR(100),
 	op.paikat INT,
 	tenttipaikat INT	
 );
 
 CREATE TABLE Rakennus (
-	nimi CHAR(100),
+	nimi CHAR(100) PRIMARY KEY,
 	osoite CHAR(100)
 );
 
 CREATE TABLE JärjestäTentti (
 	KID CHAR(25),
-	TID CHAR(25)
+	TID CHAR(25),
+	PRIMARY KEY (KID, TID)
 );
 
 CREATE TABLE JärjestäToteutus (
 	totID CHAR(25),
-	HID CHAR(25)
+	HID CHAR(25),
+	PRIMARY KEY (totID, HID)
 );
 
 CREATE TABLE JarjestaHarjoitus (
   totID CHAR(25),
-  HID CHAR(25)
+  HID CHAR(25),
+  PRIMARY KEY (totID, HID)
 );
 
 CREATE TABLE JarjestaLuento (
   totID CHAR(25),
-  LID CHAR(25)
+  LID CHAR(25),
+  PRIMARY KEY (totID,LID)
 );
 
 CREATE TABLE TenttiIlmo (
   opNum CHAR(10),
-  TID CHAR(25)
+  TID CHAR(25),
+  PRIMARY KEY (opNum,TID)
 );
 
 CREATE TABLE HarjRyhmaIlmo (
   opNum CHAR(10),
-  HID CHAR(25)
+  HID CHAR(25),
+  PRIMARY KEY (opNum,HID)
 );
 
 CREATE TABLE TenttiVaraus(
   TID CHAR(25),
   SID CHAR(25),
   alkuaika CHAR(5),
-  pvm CHAR(15)
+  pvm CHAR(15),
+  PRIMARY KEY (TID,SID,alkuaika,pvm)
 );
 
 CREATE TABLE HarjRyhmaVaraus(
   HID CHAR(25),
   SID CHAR(25),
   alkuaika CHAR(5),
-  pvm CHAR(15)
+  pvm CHAR(15),
+  PRIMARY KEY (HID,SID,alkuaika,pvm)
 );
 
 CREATE TABLE LuentoVaraus(
   LID CHAR(25),
   SID CHAR(25),
   alkuaika CHAR(5),
-  pvm CHAR(15)
+  pvm CHAR(15),
+  PRIMARY KEY (LID,SID,alkuaika,pvm)
 );
 
 CREATE TABLE TavaratSijaitsee(
   nimi CHAR(25),
   SID CHAR(25),
-  lkm INT
+  lkm INT,
+  PRIMARY KEY (nimi,SID)
 );
 
-CREATE TABLE Tapahtuma(       --ptäisikö tässä olla vielä SID?
+CREATE TABLE Tapahtuma(       --lisäsin tähän SID
   aika CHAR(5),
-  pvm CHAR(25)
+  pvm CHAR(25),
+  SID CHAR(25),
+  PRIMARY KEY (aika,pvm,SID)
 );
